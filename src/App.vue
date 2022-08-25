@@ -1,50 +1,47 @@
 <template>
-  <div id="app">
-    <h1>Chatbot Conversation builder</h1>
-    <div class="input-div">
-      <input type="text" v-model="chatID" />
-      <button @click="loadChat">Load chat</button>
-    </div>
+  <v-app>
+    <v-app-bar app light>
+      <div class="d-flex align-center">
+        <v-img
+          alt="Vuetify Logo"
+          class=""
+          contain
+          src="@/assets/img/paradox.ai logo.svg"
+          transition="scale-transition"
+          width="100"
+        />
+      </div>
 
-    <div v-if="chatToDisplay" class="chat">
-      <pre>{{ chatToDisplay }}</pre>
-    </div>
-  </div>
+      <v-spacer></v-spacer>
+
+      <!-- <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Latest Release</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn> -->
+    </v-app-bar>
+
+    <v-main>
+      <HelloWorld />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import { conversationService } from "@/services/conversation.service";
+import HelloWorld from "./components/HelloWorld";
 
 export default {
   name: "App",
-  data() {
-    return {
-      chatID: "",
-      chatToDisplay: null,
-    };
+
+  components: {
+    HelloWorld,
   },
-  methods: {
-    loadChat() {
-      this.chatToDisplay = conversationService.conversationByChatId(
-        this.chatID
-      );
-    },
-  },
+
+  data: () => ({
+    //
+  }),
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-}
-.chat {
-  text-align: left;
-}
-</style>
