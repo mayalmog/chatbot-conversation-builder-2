@@ -25,23 +25,19 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld />
+      <HomePage />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import HomePage from "./components/HomePage.vue";
 
 export default {
   name: "App",
 
   components: {
-    HelloWorld,
+    HomePage,
   },
-
-  data: () => ({
-    //
-  }),
 };
 </script>
