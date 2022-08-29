@@ -13,7 +13,6 @@ function conversationByChatId(chatID) {
   if (chat.questions) {
     chat = getFormattedQuestions(chat);
   }
-  // console.log(chat);
   return chat;
 }
 
@@ -43,6 +42,7 @@ function updateChat(chatID, updatedQuestions) {
   const updatedChatIdx = conversation.chats.findIndex(
     (chat) => chat.chatID === chatID
   );
-  conversation.chats[updatedChatIdx].questions = updatedQuestions;
-  console.log(conversation.chats[updatedChatIdx]);
+  if (updatedChatIdx) {
+    console.log(updatedQuestions);
+  }
 }

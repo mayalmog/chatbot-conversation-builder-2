@@ -14,8 +14,6 @@
         <h1 class="font-weight-bold mb-3">
           Welcome to Chatbot Conversation Builder
         </h1>
-
-        <!-- <p class="subheading font-weight-regular">Please enter chat ID:</p> -->
       </v-col>
 
       <v-col class="mb-5" cols="12">
@@ -36,7 +34,6 @@
       <v-col class="mb-5" cols="12">
         <div v-if="chatToDisplay" class="chat">
           <ChatEditor :chat="chatToDisplay" />
-          <!-- <pre><code>{{ chatToDisplay }}</code></pre> -->
         </div>
       </v-col>
     </v-row>
