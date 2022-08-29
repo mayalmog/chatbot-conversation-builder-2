@@ -35,7 +35,8 @@
       </v-col>
       <v-col class="mb-5" cols="12">
         <div v-if="chatToDisplay" class="chat">
-          <pre><code>{{ chatToDisplay }}</code></pre>
+          <ChatEditor :chat="chatToDisplay" />
+          <!-- <pre><code>{{ chatToDisplay }}</code></pre> -->
         </div>
       </v-col>
     </v-row>
@@ -46,9 +47,13 @@
 import { mdiAccount, mdiCloseCircle } from "@mdi/js";
 import { conversationService } from "@/services/conversation.service";
 
+import ChatEditor from "@/components/ChatEditor.vue";
+
 export default {
   name: "HomePage",
-
+  components: {
+    ChatEditor,
+  },
   data: () => ({
     chatID: "",
     chatToDisplay: null,

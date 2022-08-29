@@ -1,8 +1,10 @@
 import answers from "@/assets/data/answers.json";
 import questions from "@/assets/data/questions.json";
 import chats from "@/assets/data/chats.json";
+import conversation from "@/assets/data/conversation.json";
 export const conversationService = {
   conversationByChatId,
+  updateChat,
 };
 
 //generate a joint object for a specific chatID, including extended info for questions and answers:
@@ -11,7 +13,7 @@ function conversationByChatId(chatID) {
   if (chat.questions) {
     chat = getFormattedQuestions(chat);
   }
-  console.log(chat);
+  // console.log(chat);
   return chat;
 }
 
@@ -35,4 +37,12 @@ function getFormattedAnswers(qid) {
     }
   });
   return formattedAnswers;
+}
+
+function updateChat(chatID, updatedQuestions) {
+  const updatedChatIdx = conversation.chats.findIndex(
+    (chat) => chat.chatID === chatID
+  );
+  conversation.chats[updatedChatIdx].questions = updatedQuestions;
+  console.log(conversation.chats[updatedChatIdx]);
 }
